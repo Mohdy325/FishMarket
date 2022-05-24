@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_200"
+                    android:src="@drawable/logo_top"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <ImageView
+
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100"
+                    android:src="@drawable/mobile_send_top"
+                    android:layout_gravity="top"
+                    />
+
+                <ImageView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100"
+                    android:src="@drawable/mobile_send_top"
+                    android:layout_gravity="top|right"
+                    />
+
+            </FrameLayout>
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/etName"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:visibility="gone"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/rectangle"/>
+            <EditText
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:id="@+id/etMobile"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:hint="Mobile"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/rectangle"/>
+
+            <!--
+                      app:startIconDrawable="@drawable/ic_user"
+                      app:startIconTint="@color/custom_color_icon"
+
+            -->
+            <TextView
+                android:layout_marginTop="@dimen/dp_20"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/we_will_send_you_a_otp_message"
+                android:textColor="@color/black"
+                style="@style/nrml_txt"
+                android:fontFamily="@font/roboto_regular"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_email_phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/mobile"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--<EditText
+                android:layout_marginTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:hint="Create Password"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/rectangle"/>
+  -->
+            <TextView
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="@dimen/txt18"
+                android:gravity="center"
+                android:id="@+id/tv_verify"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/purple_700"
+                android:layout_marginTop="@dimen/dp_50"
+                android:textColor="@color/white"
+                android:text="@string/send_otp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

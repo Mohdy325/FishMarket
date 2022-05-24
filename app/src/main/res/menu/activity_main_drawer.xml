@@ -2,19 +2,52 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/nav_change_language"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="@string/change_language" />
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_my_listing"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="@string/my_listing" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/my_favourites" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/share_app" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_videos"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/videos" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/contact_us" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/nav_disclaimer"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/discalaimer" />
+        <item
+            android:id="@+id/nav_terms_condition"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/terms_condition" />
+        <item
+            android:id="@+id/nav_sign_out"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/sign_out" />
     </group>
 </menu>
