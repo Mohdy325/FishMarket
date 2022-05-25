@@ -18,7 +18,7 @@
         android:icon="@drawable/charcha"
         android:title="@string/charcha" />
     <item
-        android:id="@+id/nav_account"
+        android:id="@+id/nav_discover"
         android:icon="@drawable/discover"
         android:title="@string/discover" />
 

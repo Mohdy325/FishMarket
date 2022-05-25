@@ -31,7 +31,11 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         binding.rvHome.setAdapter(new HomeAdapter(getContext()));
         new Handler().postDelayed(()->{
-            binding.progressBar.setVisibility(View.GONE);
+            try {
+                binding.progressBar.setVisibility(View.GONE);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         },3000);
         binding.tvAddress.setOnClickListener(view -> {
             LocationDialogFragment bf = new LocationDialogFragment((address, latitude, longitude) -> {
@@ -48,6 +52,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
         binding = null;
     }
 }

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_15"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_220"
+        android:src="@drawable/logo_top"/>
+
+    <LinearLayout
+        android:background="@drawable/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60">
+        <TextView
+
+            android:background="@drawable/lets_bg"
+            android:textSize="@dimen/txt25"
+            style="@style/txt_20_med_bold"
+            android:gravity="center"
+            android:text="Let's"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"/>
+        <TextView
+            android:textSize="@dimen/txt25"
+            style="@style/txt_20_med_bold"
+            android:paddingLeft="@dimen/dp_15"
+            android:gravity="center_vertical"
+            android:text="Connect...!"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/txt20"
+        android:padding="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dp_20"
+            android:background="@drawable/rectangle_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_220"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/feed"/>
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/txt_20_med_bold"
+                android:gravity="center"
+                android:text="Fish Market Sawal Jawab"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:padding="@dimen/dp_20"
+            android:background="@drawable/rectangle_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_220"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/healthcare"/>
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/txt_20_med_bold"
+                android:gravity="center"
+                android:text="Fish Market Gyan"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

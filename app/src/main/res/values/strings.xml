@@ -33,4 +33,7 @@
     <string name="email">Email</string>
     <string name="update">Update</string>
     <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="address_of_fish_farm">Address of fish farm</string>
+    <string name="weight_per_pcs">Weight Per Pcs</string>
 </resources>

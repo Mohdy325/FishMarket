@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_15">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/name"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_mobile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/mobile"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_address"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/address"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:inputType="textPostalAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_city"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/city"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:inputType="textPostalAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_address_fish_farm"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address_of_fish_farm"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/et_address_fish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_15"
+                        android:paddingLeft="@dimen/dp_15"
+                        android:paddingRight="@dimen/dp_45"
+                        android:fontFamily="@font/roboto_regular"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/ic_my_location"/>
+
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle">
+                <Spinner
+                    android:id="@+id/sp_type_of_fish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle">
+                <Spinner
+                    android:id="@+id/sp_size_of_fish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_weight"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/weight_per_pcs"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
