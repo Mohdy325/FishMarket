@@ -17,6 +17,7 @@ public class SignUpActivity extends BaseActivity {
         binding=ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnSignUp.setOnClickListener(view -> startActivity(goTo(OtpVerificationActivity.class).putExtra(UrlContainer.TRANSFER_MODEL,"Data")));
+        binding.tvSignIn.setOnClickListener(view -> onBackPressed());
 
     }
 }

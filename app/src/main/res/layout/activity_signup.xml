@@ -15,12 +15,12 @@
             android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_180"
+                android:layout_height="@dimen/dp_160"
                 android:src="@drawable/logo"
                 android:layout_gravity="center_horizontal"
                 />
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_first_name"
+                android:id="@+id/input_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="@string/email"
+                android:hint="@string/email_optional"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
@@ -88,11 +88,57 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
-           <CheckBox
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:passwordToggleEnabled="true"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_confirm_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/confirm_password"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_confirma_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
                 android:textColor="@color/teal_700"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_5"
                 android:text="You Agree to our Terms and Conditions"
                 />
 
@@ -106,8 +152,8 @@
                 android:background="@color/purple_700"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/white"
-                android:text="@string/update"/>
-            <!--<LinearLayout
+                android:text="@string/sign_up"/>
+            <LinearLayout
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -134,7 +180,10 @@
                     android:textColor="@color/black"/>
 
 
-            </LinearLayout>-->
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"/>
         </LinearLayout>
     </ScrollView>
 

@@ -12,11 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
 
     <style name="Theme.FishMarket.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!--  <item name="android:windowEnterAnimation">@anim/slide_up</item>
+              <item name="android:windowExitAnimation">@anim/slide_down</item>-->
     </style>
 
     <style name="Theme.FishMarket.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

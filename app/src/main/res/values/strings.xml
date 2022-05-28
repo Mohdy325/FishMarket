@@ -36,4 +36,15 @@
     <string name="city">City</string>
     <string name="address_of_fish_farm">Address of fish farm</string>
     <string name="weight_per_pcs">Weight Per Pcs</string>
+    <string name="password">Password</string>
+    <string name="email_optional">Email(Optional)</string>
+    <string name="confirm_password">Confrim Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="remove_image">Remove Image</string>
+    <string name="change_image">Change Image</string>
 </resources>

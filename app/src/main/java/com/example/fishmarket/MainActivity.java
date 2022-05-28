@@ -1,9 +1,13 @@
 package com.example.fishmarket;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.example.fishmarket.activity.EditProfileActivity;
+import com.example.fishmarket.databinding.NavHeaderMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+        TextView tv_edit=navigationView.getHeaderView(0).findViewById(R.id.tv_edit);
+        tv_edit.setOnClickListener(view -> startActivity(new Intent(this, EditProfileActivity.class)));
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

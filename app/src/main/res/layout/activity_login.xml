@@ -23,7 +23,7 @@
                     android:layout_gravity="center_horizontal"
                     />
                 <ImageView
-
+                    android:visibility="gone"
                     android:layout_width="@dimen/dp_100"
                     android:layout_height="@dimen/dp_100"
                     android:src="@drawable/mobile_send_top"
@@ -31,6 +31,7 @@
                     />
 
                 <ImageView
+                    android:visibility="gone"
                     android:layout_width="@dimen/dp_100"
                     android:layout_height="@dimen/dp_100"
                     android:src="@drawable/mobile_send_top"
@@ -67,6 +68,7 @@
 
             -->
             <TextView
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/dp_20"
                 android:gravity="center"
                 android:layout_width="match_parent"
@@ -99,6 +101,37 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="1dp"
+                app:passwordToggleEnabled="true"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_forgot"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:textSize="@dimen/txt16"
+                android:textColor="@color/teal_700"/>
 
             <!--<EditText
                 android:layout_marginTop="20dp"
@@ -114,13 +147,42 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="@dimen/txt18"
                 android:gravity="center"
-                android:id="@+id/tv_verify"
+                android:id="@+id/tv_login"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@color/purple_700"
-                android:layout_marginTop="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_30"
                 android:textColor="@color/white"
-                android:text="@string/send_otp"/>
+                android:text="@string/login"/>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You have no account?"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/tvSignUp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textColor="@color/teal_700"/>
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="here"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -4,20 +4,20 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.example.fishmarket.MainActivity;
+import com.example.fishmarket.databinding.ActivityForgotPasswordBinding;
 import com.example.fishmarket.databinding.ActivityLoginBinding;
 import com.example.fishmarket.utils.BaseActivity;
 
-public class LoginActivity extends BaseActivity {
-    ActivityLoginBinding binding;
+public class ForgotActivitiy extends BaseActivity {
+    ActivityForgotPasswordBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityLoginBinding.inflate(getLayoutInflater());
+        binding=ActivityForgotPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.tvForgot.setOnClickListener(view -> startActivity(goTo(ForgotActivitiy.class)));
-        binding.tvLogin.setOnClickListener(view -> startActivity(goTo(MainActivity.class)));
+        binding.tvSend.setOnClickListener(view -> startActivity(goTo(OtpVerificationActivity.class)));
+        binding.tvSignIn.setOnClickListener(view -> onBackPressed());
         binding.tvSignUp.setOnClickListener(view -> startActivity(goTo(SignUpActivity.class)));
     }
 }
