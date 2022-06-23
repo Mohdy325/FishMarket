@@ -23,8 +23,8 @@ import com.example.fishmarket.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
-
+    public ActivityMainBinding binding;
+    public NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home,R.id.nav_product,R.id.nav_my_order,R.id.nav_account, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_store, R.id.nav_charcha, R.id.nav_discover)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(binding.appBarMain.content.bottomNavigation, navController);

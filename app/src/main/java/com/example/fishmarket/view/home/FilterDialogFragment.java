@@ -165,8 +165,6 @@ public class FilterDialogFragment extends BottomSheetDialogFragment {
         categoryPOJOS.add(new CategoryPOJO("Catla"));
         categoryPOJOS.add(new CategoryPOJO("Other"));
 
-
-
         adapter=new FilterDialogAdapter(context,categoryPOJOS);
         binding.rvCategories.setAdapter(adapter);
 
@@ -176,5 +174,6 @@ public class FilterDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        binding = null;
     }
 }

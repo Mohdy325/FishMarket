@@ -24,4 +24,16 @@
     <color name="low_green">#cbd601</color>
     <color name="light_pink">#FBB6FB</color>
     <color name="colorTransparent">#00000000</color>
+
+
+    <color name="dark_text_color">#FF000000</color>
+    <color name="light_text">#9c9c9c</color>
+    <color name="card_image_bg">#f8f8f8</color>
+    <color name="status_bar_color">#FFFFFFFF</color>
+    <color name="login_bg">#FFFFFFFF</color>
+    <color name="yellow">#FFC107</color>
+    <color name="orange">#FF9800</color>
+    <color name="blue">#2967ff</color>
+
+
 </resources>

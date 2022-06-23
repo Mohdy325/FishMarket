@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dp_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    >
+    <LinearLayout
+        android:padding="7dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        >
+        <ImageView
+            android:id="@+id/iv_category"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:background="@drawable/card_design"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/fish1"/>
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5"
+            android:text="BIOFLOCK MEDICINE"
+            android:gravity="center"
+            android:textSize="@dimen/txt12"
+            android:fontFamily="@font/rubik_regular"
+            android:textColor="@color/dark_text_color"/>
+        <!-- <TextView
+             android:id="@+id/tv_off"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:paddingLeft="@dimen/dp_5"
+             android:text="Up to 30% off"
+             android:fontFamily="@font/rubik_regular"
+             android:textSize="12sp"
+             android:textColor="@color/blue"/>-->
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

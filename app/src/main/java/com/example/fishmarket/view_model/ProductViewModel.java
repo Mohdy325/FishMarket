@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.fishmarket.R;
 import com.example.fishmarket.adapter.ProductCategoryAdapter;
+import com.example.fishmarket.adapter.ProductSubCategoryAdapter;
 import com.example.fishmarket.model.CategoryPOJO;
+import com.example.fishmarket.model.SubCategoryPOJO;
 
 import java.util.ArrayList;
 
 public class ProductViewModel extends ViewModel {
     public CategoryPOJO categoryPOJO;
     public ArrayList<CategoryPOJO> categoryPOJOS=new ArrayList<>();
+    public ArrayList<CategoryPOJO> subCategoryList=new ArrayList<>();
     public ProductCategoryAdapter categoryAdapter=new ProductCategoryAdapter(categoryPOJOS);
 
     public void setUpData(){
@@ -35,6 +38,39 @@ public class ProductViewModel extends ViewModel {
         categoryAdapter.notifyDataSetChanged();
 
     }
+    public ProductSubCategoryAdapter subCategoryAdapter=new ProductSubCategoryAdapter(subCategoryList);
+
+    public void setUpSubCategoryData(){
+        if (subCategoryList.size()>0){
+            return;
+        }
+        subCategoryList=new ArrayList<>();
+        ArrayList<SubCategoryPOJO> subCategoryPOJOS=new ArrayList<>();
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryPOJOS.add(new SubCategoryPOJO());
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+        subCategoryList.add(new CategoryPOJO(false,subCategoryPOJOS));
+
+
+
+        // categoryPOJOS.add(new CategoryPOJO("AQUARIUM", R.drawable.feed));
+
+        subCategoryAdapter.notifyDataSetChanged();
+
+    }
 
     public ArrayList<CategoryPOJO> subCategoryPOJOS;
 
@@ -54,6 +90,7 @@ public class ProductViewModel extends ViewModel {
 
         return  subCategoryPOJOS;
     }
+
 
     MutableLiveData<ArrayList<CategoryPOJO>> mutableLiveData;
 

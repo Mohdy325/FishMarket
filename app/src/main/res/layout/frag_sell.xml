@@ -13,6 +13,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/dp_15">
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle">
+                <Spinner
+                    android:id="@+id/sp_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle">
+                <Spinner
+                    android:id="@+id/sp_sub_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle">
+                <Spinner
+                    android:id="@+id/sp_sub_sub_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -205,9 +235,9 @@
                         <ImageView
                             android:layout_width="@dimen/dp_40"
                             android:layout_height="@dimen/dp_40"
-                            android:tint="@color/teal_700"
                             android:src="@drawable/ic_baseline_add_24"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            app:tint="@color/teal_700" />
                     </FrameLayout>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_imageList"

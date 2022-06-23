@@ -7,23 +7,31 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.fishmarket.databinding.FragCharchaBinding;
+import com.example.fishmarket.databinding.FragmentAccountBinding;
 import com.example.fishmarket.utils.BaseFragment;
+import com.example.fishmarket.view_model.AccountViewModel;
 
-public class CharchaFragment extends BaseFragment {
-    FragCharchaBinding binding;
+public class AccountFragment extends BaseFragment {
+    FragmentAccountBinding binding;
+    AccountViewModel viewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding=FragCharchaBinding.inflate(inflater,container,false);
-        return binding.getRoot();
+       binding=FragmentAccountBinding.inflate(inflater,container,false);
+       viewModel=new ViewModelProvider(this).get(AccountViewModel.class);
+       viewModel.setLoginData();
+       binding.setModel(viewModel.loginPOJO);
 
+        return binding.getRoot();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 }

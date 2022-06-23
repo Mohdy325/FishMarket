@@ -8,6 +8,7 @@
     android:background="@color/bg"
     tools:context=".view.home.HomeFragment">
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -35,7 +36,7 @@
             android:layout_width="@dimen/dp_25"
             android:layout_height="@dimen/dp_25"
             android:src="@drawable/ic_baseline_filter_list_24"
-            android:tint="@color/white"/>
+            app:tint="@color/white" />
 
 
 

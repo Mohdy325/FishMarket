@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/dp_5"
+    android:padding="@dimen/dp_10"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shivam Fish Provider"
+                android:textColor="@color/dark_text_color"
+                android:fontFamily="@font/rubik_bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_fish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rohu Fish"
+                android:textColor="@color/dark_text_color"
+                android:fontFamily="@font/rubik_bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_order_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="#ORD_20211012003"
+                android:textColor="@color/dark_text_color"
+                android:fontFamily="@font/rubik_bold"
+                android:textSize="16sp"/>
+
+
+
+            <TextView
+                android:id="@+id/tv_esitmated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12"
+                android:fontFamily="@font/rubik_regular"
+                android:text="Estimated Delivery"/>
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/dp_10">
+            <TextView
+                android:id="@+id/tv_status"
+                android:fontFamily="@font/rubik_bold"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In-Transit"/>
+            <TextView
+                android:id="@+id/tv_qty"
+                android:fontFamily="@font/rubik_bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 KG"/>
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/tv_date"
+                android:fontFamily="@font/rubik_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12-10-2021"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bg"/>
+
+</LinearLayout>

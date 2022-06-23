@@ -52,4 +52,10 @@
     <string name="my_order">My Order</string>
     <string name="account">Account</string>
     <string name="add_product">Add Product</string>
+    <string name="profile">Profile</string>
+    <string name="refer_earn"><![CDATA[Refer & Earn]]></string>
+    <string name="notification">Notification</string>
+    <string name="sub_category">Sub Category</string>
+    <string name="service_request">Service Request</string>
+    <string name="wallet">Wallet</string>
 </resources>

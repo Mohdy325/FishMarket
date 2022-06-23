@@ -1,6 +1,7 @@
 package com.example.fishmarket.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class CategoryPOJO implements Serializable {
     public String name;
@@ -14,7 +15,13 @@ public class CategoryPOJO implements Serializable {
         this.name = name;
         this.image=image;
     }
+    public Boolean isExpand;
+    public ArrayList<SubCategoryPOJO> subCategoryPOJOS;
 
+    public CategoryPOJO(Boolean isExpand, ArrayList<SubCategoryPOJO> subCategoryPOJOS) {
+        this.isExpand = isExpand;
+        this.subCategoryPOJOS = subCategoryPOJOS;
+    }
     public String getName() {
         return name;
     }

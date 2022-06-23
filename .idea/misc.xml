@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/btn_design.xml" value="0.1235" />
         <entry key="app/src/main/res/drawable/default_dot.xml" value="0.113" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/lets_bg.xml" value="0.113" />
@@ -29,16 +30,22 @@
         <entry key="app/src/main/res/layout/frag_chat_dialog.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/frag_discover.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/frag_filter_dialog.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/layout/frag_my_order.xml" value="0.22" />
         <entry key="app/src/main/res/layout/frag_product_content.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/layout/frag_product_sub_category.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/frag_products.xml" value="0.1" />
         <entry key="app/src/main/res/layout/frag_sell.xml" value="0.15989583333333332" />
         <entry key="app/src/main/res/layout/frag_store.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/inflate_added_images.xml" value="0.12916666666666668" />
         <entry key="app/src/main/res/layout/inflate_discover.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/inflate_filter_home.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/inflate_home_list.xml" value="0.17304229736328125" />
+        <entry key="app/src/main/res/layout/inflate_order.xml" value="0.1" />
         <entry key="app/src/main/res/layout/inflate_product_category.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/inflate_product_subcategory.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/inflate_subcategory.xml" value="0.33" />
         <entry key="app/src/main/res/layout/list_slider_image.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.15989583333333332" />
         <entry key="app/src/main/res/layout/place_row_layout.xml" value="0.17552083333333332" />
