@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/nav_product"
+        android:name="com.example.fishmarket.view.product.ProductCategoryFragment"
+        android:label="@string/product"
+        tools:layout="@layout/frag_product_category" />
+
+    <fragment
         android:id="@+id/nav_sell"
         android:name="com.example.fishmarket.view.SellFragment"
         android:label="@string/sell"

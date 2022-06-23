@@ -47,4 +47,9 @@
     <string name="zipcode">Zipcode</string>
     <string name="remove_image">Remove Image</string>
     <string name="change_image">Change Image</string>
+    <string name="note_txt"><b>Note : </b>Maximum 5 category can be choose.</string>
+    <string name="product">Product</string>
+    <string name="my_order">My Order</string>
+    <string name="account">Account</string>
+    <string name="add_product">Add Product</string>
 </resources>

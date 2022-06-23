@@ -1,5 +1,6 @@
 package com.example.fishmarket.view.home;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -46,7 +47,22 @@ public class HomeFragment extends Fragment {
            // bf.setArguments(bundle);
             bf.show(getChildFragmentManager(), bf.getTag());
         });
+        binding.ivFilter.setOnClickListener(view -> {
+            FilterDialogFragment bf = new FilterDialogFragment(list -> {
+                //binding.tvAddress.setText(address);
+            });
+           // Bundle bundle=new Bundle();
+            //bundle.putSerializable(UrlContainer.TRANSFER_MODEL,new ChatUserPOJO("Alex","just now",true, R.drawable.user));
+           // bf.setArguments(bundle);
+            bf.show(getChildFragmentManager(), bf.getTag());
+        });
         return root;
+    }
+
+    Dialog dialog;
+
+    private void openFilterDialog(){
+
     }
 
     @Override
