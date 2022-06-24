@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class CategoryPOJO implements Serializable {
     public String name;
     public int image;
-    Boolean isSelected;
+    boolean isSelected;
 
     public CategoryPOJO(String name) {
         this.name = name;
@@ -30,11 +30,11 @@ public class CategoryPOJO implements Serializable {
         this.name = name;
     }
 
-    public Boolean getSelected() {
+    public boolean getSelected() {
         return isSelected;
     }
 
-    public void setSelected(Boolean selected) {
+    public void setSelected(boolean selected) {
         isSelected = selected;
     }
 }

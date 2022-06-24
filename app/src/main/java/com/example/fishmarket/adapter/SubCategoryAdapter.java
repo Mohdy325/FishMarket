@@ -2,15 +2,19 @@ package com.example.fishmarket.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.fishmarket.MainActivity;
 import com.example.fishmarket.R;
+import com.example.fishmarket.api_services.UrlContainer;
 import com.example.fishmarket.databinding.InflateSubcategoryBinding;
 import com.example.fishmarket.model.SubCategoryPOJO;
 
@@ -35,11 +39,14 @@ public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SubCategoryHolder holder, int position) {
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent=new Intent(context, ProductListActivity.class);
-                //context.startActivity(intent);
+        holder.itemView.setOnClickListener(view -> {
+            //Intent intent=new Intent(context, ProductListActivity.class);
+            //context.startActivity(intent);
+            Bundle bundle=new Bundle();
+            bundle.putSerializable(UrlContainer.TRANSFER_MODEL,subCategoryPOJOS.get(position));
+            if (context instanceof MainActivity){
+                Navigation.findNavController(view).navigate(R.id.action_nav_sub_category_to_nav_product_by_sub,bundle);
+             //   ((MainActivity)context).navController.navigate(R.id.action_nav_sub_category_to_nav_product_by_sub,bundle);
             }
         });
     }

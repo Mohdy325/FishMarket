@@ -11,7 +11,10 @@ import com.example.fishmarket.databinding.NavHeaderMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -54,13 +57,25 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(binding.appBarMain.content.bottomNavigation, navController);
-
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                binding.appBarMain.llAddress.setVisibility(View.VISIBLE);
+                switch (navDestination.getId()){
+                    case R.id.action_nav_product_to_nav_sub_category:
+                        binding.appBarMain.llAddress.setVisibility(View.GONE);
+                        break;
+                    case R.id.action_nav_sub_category_to_nav_product_by_sub:
+                        binding.appBarMain.llAddress.setVisibility(View.GONE);
+                        break;
+                }
+            }
+        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+       getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

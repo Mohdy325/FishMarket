@@ -1,12 +1,15 @@
 package com.example.fishmarket.view_model;
 
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.fishmarket.R;
+import com.example.fishmarket.adapter.HomeAdapter;
 import com.example.fishmarket.adapter.ProductCategoryAdapter;
 import com.example.fishmarket.adapter.ProductSubCategoryAdapter;
 import com.example.fishmarket.model.CategoryPOJO;
+import com.example.fishmarket.model.ProductPOJO;
 import com.example.fishmarket.model.SubCategoryPOJO;
 
 import java.util.ArrayList;
@@ -92,7 +95,27 @@ public class ProductViewModel extends ViewModel {
     }
 
 
-    MutableLiveData<ArrayList<CategoryPOJO>> mutableLiveData;
+   public MutableLiveData<ArrayList<ProductPOJO>> mutableLiveData=new MutableLiveData<>();
+
+    public HomeAdapter homeAdapter;
+    public void getProducts(){
+        ArrayList<ProductPOJO> arrayList=new ArrayList<>();
+        arrayList.add(new ProductPOJO("AIR BLOWER"));
+        arrayList.add(new ProductPOJO("OXYGEN GENERATOR/DIFUSER"));
+        arrayList.add(new ProductPOJO("ELECTRICAL PUMPS"));
+        arrayList.add(new ProductPOJO("PUMP ACCESSORIES"));
+        arrayList.add(new ProductPOJO("AERATOR/ PADDLE WHEEL AERATOR"));
+        arrayList.add(new ProductPOJO("DO METER"));
+        arrayList.add(new ProductPOJO("ELECTRONIC WEIGHING BALANCE"));
+        arrayList.add(new ProductPOJO("COMPRESSORS"));
+        arrayList.add(new ProductPOJO("GENERATOR SET"));
+        arrayList.add(new ProductPOJO("FEED DISPENSER"));
+        arrayList.add(new ProductPOJO("PLASTIC CRATES"));
+        homeAdapter=new HomeAdapter();
+        homeAdapter.updateList(arrayList);
+
+        mutableLiveData.postValue(arrayList);
+    }
 
 
 }

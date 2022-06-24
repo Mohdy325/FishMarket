@@ -35,7 +35,7 @@ context=getContext();
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        binding.rvHome.setAdapter(new HomeAdapter(getContext()));
+        binding.rvHome.setAdapter(new HomeAdapter(this));
         new Handler().postDelayed(()->{
             try {
                 binding.progressBar.setVisibility(View.GONE);
@@ -43,6 +43,9 @@ context=getContext();
                 e.printStackTrace();
             }
         },3000);
+        homeViewModel.setUpData();
+        binding.rvCategories.setAdapter(homeViewModel.categoryAdapter);
+
        if (context instanceof MainActivity &&  ((MainActivity) context).binding!=null){
            ((MainActivity) context).binding.appBarMain.llAddress.setOnClickListener(view -> {
                LocationDialogFragment bf = new LocationDialogFragment((address, latitude, longitude) -> {

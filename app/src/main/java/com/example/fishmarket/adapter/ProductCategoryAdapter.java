@@ -23,7 +23,6 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
     ArrayList<CategoryPOJO> categoryPOJOS;
 
     public ProductCategoryAdapter(ArrayList<CategoryPOJO> categoryPOJOS) {
-        this.context = context;
         this.categoryPOJOS = categoryPOJOS;
     }
 
