@@ -11,7 +11,10 @@ import com.example.fishmarket.databinding.NavHeaderMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -23,8 +26,8 @@ import com.example.fishmarket.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
-
+    public ActivityMainBinding binding;
+    public NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +50,32 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_store, R.id.nav_charcha, R.id.nav_discover)
+                R.id.nav_home,R.id.nav_product,R.id.nav_my_order,R.id.nav_account, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_store, R.id.nav_charcha, R.id.nav_discover)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(binding.appBarMain.content.bottomNavigation, navController);
-
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                binding.appBarMain.llAddress.setVisibility(View.VISIBLE);
+                switch (navDestination.getId()){
+                    case R.id.action_nav_product_to_nav_sub_category:
+                        binding.appBarMain.llAddress.setVisibility(View.GONE);
+                        break;
+                    case R.id.action_nav_sub_category_to_nav_product_by_sub:
+                        binding.appBarMain.llAddress.setVisibility(View.GONE);
+                        break;
+                }
+            }
+        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+       getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

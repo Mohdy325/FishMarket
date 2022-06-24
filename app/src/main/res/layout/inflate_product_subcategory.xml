@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:background="@color/status_bar_color"
+        >
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_80"
+                app:cardCornerRadius="@dimen/dp_10">
+                <ImageView
+                    android:id="@+id/iv_shop"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/feed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/dp_10">
+
+                <LinearLayout
+                    android:gravity="top"
+                    android:layout_marginTop="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MARINE FISHERIES"
+                        android:textColor="@color/dark_text_color"
+                        android:fontFamily="@font/rubik_bold"
+                        android:textSize="@dimen/txt18"/>
+                    <ImageView
+                        android:id="@+id/iv_expand_more"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        />
+                    <ImageView
+                        android:visibility="gone"
+                        android:rotation="90"
+                        android:id="@+id/iv_expand_less"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        />
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dp_10"
+            android:id="@+id/rv_sub_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="3"
+            tools:listitem="@layout/inflate_product_subcategory"
+            />
+
+    </LinearLayout>
+</layout>

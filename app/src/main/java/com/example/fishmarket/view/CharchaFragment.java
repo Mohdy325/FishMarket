@@ -21,4 +21,9 @@ public class CharchaFragment extends BaseFragment {
         return binding.getRoot();
 
     }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }

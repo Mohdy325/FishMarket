@@ -44,4 +44,10 @@ public class DiscoverFragment extends BaseFragment {
         adapter=new DiscoverAdapter(context,discoverPOJOS);
         binding.rvDiscover.setAdapter(adapter);
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }

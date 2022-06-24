@@ -133,4 +133,10 @@ FragStoreBinding binding;
         latestServiceAdapter=new ProductAdapter(context,latestServiceProudcts);
         binding.rvLatestServices.setAdapter(latestServiceAdapter);
     }*/
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }

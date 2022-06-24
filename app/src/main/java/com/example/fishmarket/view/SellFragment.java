@@ -25,7 +25,9 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.fishmarket.R;
 import com.example.fishmarket.adapter.AddedImageAdapter;
+import com.example.fishmarket.adapter.ProductCategoryAdapter;
 import com.example.fishmarket.databinding.FragSellBinding;
+import com.example.fishmarket.model.CategoryPOJO;
 import com.example.fishmarket.model.ImagesPOJO;
 import com.example.fishmarket.utils.BaseFragment;
 
@@ -41,6 +43,8 @@ String[] typeOfSupplier={"Select Supply Type","Locally","All India"};
 String[] typeOfFish={"Select Type of Fish","Papda","Red Tilapia"};
 String[] sizeOfFish={"Select Size of Fish","Spawn","Zero","1 Inches","2 Inches","3 Inches"};
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,9 +58,75 @@ String[] sizeOfFish={"Select Size of Fish","Spawn","Zero","1 Inches","2 Inches",
                 checkPermission();
             }
         });
+        setUpData();
+        addDataInSubCategory();
+        setSubSubCateogry();
 
         return binding.getRoot();
     }
+
+     ArrayList<String> categoryPOJOS=new ArrayList<>();
+    public ArrayList<CategoryPOJO> subCategoryList=new ArrayList<>();
+
+    public void setUpData(){
+        categoryPOJOS=new ArrayList<>();
+        // categoryPOJOS =new ArrayList<>();
+        categoryPOJOS.add("Select Category");
+        categoryPOJOS.add("AQUACULTURE EQUIPMENT");
+        categoryPOJOS.add("AQUARIUM");
+        categoryPOJOS.add("AQUACULTURE MEDICINE");
+        categoryPOJOS.add("FISH FEED");
+        categoryPOJOS.add("FISH PRODUCTS");
+        categoryPOJOS.add("FISH SEEDS");
+        categoryPOJOS.add("FRESH FROZEN FISH (ice BOX)");
+        categoryPOJOS.add("LIVE FISH");
+        categoryPOJOS.add("RAW MATERIALS");
+        categoryPOJOS.add("TABLE SIZE FISH");
+
+        // categoryPOJOS.add("AQUARIUM");
+        binding.spCategory.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,categoryPOJOS));
+        
+    }
+    public ArrayList<String> subCategoryPOJOS;
+
+    public void addDataInSubCategory(){
+        subCategoryPOJOS =new ArrayList<>();
+        subCategoryPOJOS.add("Select Sub Category");
+        subCategoryPOJOS.add("FISHERIES EQUIPMENTS");
+        subCategoryPOJOS.add("COLD CHAIN FACILITIES");
+        subCategoryPOJOS.add("BIO FLOC/ RAS");
+        subCategoryPOJOS.add("FISH FEED MILL/ PLANT EQUIPMENT");
+        subCategoryPOJOS.add("VEHICLES WITH ICE BOX");
+        subCategoryPOJOS.add("MARINE FISHERIES");
+        subCategoryPOJOS.add("SEA CAGE / RESERVOIRS CAGE/PEN");
+        subCategoryPOJOS.add("HATCHERY");
+        subCategoryPOJOS.add("FISH VALUE ADD ENTERPRISE UNITS");
+        subCategoryPOJOS.add("FABRICATION MATERIAL ");
+
+
+        binding.spSubCategory.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,subCategoryPOJOS));
+    }
+    public ArrayList<String> subSubCategoryPOJOS;
+
+    public void setSubSubCateogry(){
+        subSubCategoryPOJOS =new ArrayList<>();
+        subSubCategoryPOJOS.add("Select Sub Sub Category");
+        subSubCategoryPOJOS.add("FISHERIES EQUIPMENTS");
+        subSubCategoryPOJOS.add("COLD CHAIN FACILITIES");
+        subSubCategoryPOJOS.add("BIO FLOC/ RAS");
+        subSubCategoryPOJOS.add("FISH FEED MILL/ PLANT EQUIPMENT");
+        subSubCategoryPOJOS.add("VEHICLES WITH ICE BOX");
+        subSubCategoryPOJOS.add("MARINE FISHERIES");
+        subSubCategoryPOJOS.add("SEA CAGE / RESERVOIRS CAGE/PEN");
+        subSubCategoryPOJOS.add("HATCHERY");
+        subSubCategoryPOJOS.add("FISH VALUE ADD ENTERPRISE UNITS");
+        subSubCategoryPOJOS.add("FABRICATION MATERIAL ");
+
+
+        binding.spSubSubCategory.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,subSubCategoryPOJOS));
+    }
+
+
     ArrayList<ImagesPOJO> imagesPOJOS;
     AddedImageAdapter imageAdapter;
     ArrayList<ImagesPOJO> videoList;
@@ -71,6 +141,8 @@ String[] sizeOfFish={"Select Size of Fish","Spawn","Zero","1 Inches","2 Inches",
             imageAdapter.notifyDataSetChanged();
         }
     }
+    
+    
     private void SelectImage() {
         final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
         // final CharSequence[] options = {"Choose from Gallery", "Cancel"};
@@ -341,6 +413,11 @@ String[] sizeOfFish={"Select Size of Fish","Spawn","Zero","1 Inches","2 Inches",
             e.printStackTrace();
             return file; // it will return null
         }
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
 

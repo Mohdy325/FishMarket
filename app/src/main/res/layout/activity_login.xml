@@ -19,7 +19,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_200"
-                    android:src="@drawable/logo_top"
+                    android:src="@drawable/login_top"
                     android:layout_gravity="center_horizontal"
                     />
                 <ImageView
@@ -183,6 +183,17 @@
 
 
             </LinearLayout>
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/tv_skip"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="@dimen/txt18"
+                android:textColor="@color/teal_700"/>
+
         </LinearLayout>
     </ScrollView>
 

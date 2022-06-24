@@ -42,4 +42,6 @@
     <dimen name="txt16">16sp</dimen>
     <dimen name="txt20">20sp</dimen>
     <dimen name="txt25">25sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="txt10">10sp</dimen>
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:background="@color/teal_700"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:text="Select Category"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_medium"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_marginRight="@dimen/dp_10"
+                android:id="@+id/iv_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/white"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_baseline_cancel_24"/>
+        </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical">
+       <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_categories"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+
+    </FrameLayout>
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/nrml_txt"
+        android:text="@string/note_txt"/>
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:text="Search"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt20"
+        android:background="@drawable/rectangle_card"
+        android:backgroundTint="@color/purple_500"/>
+
+</LinearLayout>
