@@ -170,6 +170,7 @@
                             android:background="@color/grey" />
                     </LinearLayout>
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/ll_service_request"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -290,6 +291,7 @@
 
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/ll_wallet"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
