@@ -4,6 +4,10 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
+import com.example.fishmarket.model.AddressPOJO;
+import com.google.gson.Gson;
 
 /**
  * Created by Lincoln on 05/05/16.
@@ -416,7 +420,7 @@ public class PrefManager {
         }
         //sp.edit().putString("LoginData",json).apply();
 
-    }
+    }*/
     public static void SaveDefualtAddressData(Context context, AddressPOJO responseData)
     {
         SharedPreferences sp = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
@@ -444,5 +448,5 @@ public class PrefManager {
         //sp.edit().putString("LoginData",json).apply();
 
     }
-    */
+
 }

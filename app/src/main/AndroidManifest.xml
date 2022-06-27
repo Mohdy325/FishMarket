@@ -40,6 +40,8 @@
         <activity android:name=".activity.SellerDetailsActivity" />
         <activity android:name=".activity.ForgotActivitiy" />
         <activity android:name=".activity.EditProfileActivity" />
+        <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.AddressActivity" />
     </application>
 
 </manifest>

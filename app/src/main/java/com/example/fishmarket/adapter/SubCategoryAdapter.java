@@ -49,6 +49,7 @@ public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.
              //   ((MainActivity)context).navController.navigate(R.id.action_nav_sub_category_to_nav_product_by_sub,bundle);
             }
         });
+
     }
 
     @Override

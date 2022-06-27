@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.example.fishmarket.model.SubCategoryPOJO" />
+    </data>
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
@@ -21,7 +26,8 @@
                 <ImageView
                     android:id="@+id/iv_shop"
                     android:scaleType="fitXY"
-                    android:src="@drawable/feed"
+                    android:src="@drawable/placeholder"
+                    app:loadImage="@{model.image}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </androidx.cardview.widget.CardView>
@@ -41,7 +47,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="MARINE FISHERIES"
+                        android:text="@{model.name}"
                         android:textColor="@color/dark_text_color"
                         android:fontFamily="@font/rubik_bold"
                         android:textSize="@dimen/txt18"/>

@@ -58,4 +58,7 @@
     <string name="sub_category">Sub Category</string>
     <string name="service_request">Service Request</string>
     <string name="wallet">Wallet</string>
+    <string name="my_addresses">My Addresses</string>
+    <string name="Rs">₹</string>
+    <string name="no_data_found">No data found!</string>
 </resources>

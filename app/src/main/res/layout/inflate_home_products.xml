@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.example.fishmarket.utils.UtilityFunction"/>
+        <variable
+            name="model"
+            type="com.example.fishmarket.model.ProductPOJO" />
+
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_width="@dimen/dp_160"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        app:cardElevation="@dimen/dp_10">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+
+            android:background="@color/white"
+            android:elevation="@dimen/dp_5">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"
+                app:loadImage="@{model.image}"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_10"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fish: "
+                        style="@style/bold_nrml"/>
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{model!=null?model.productName:"ELECTRICAL PUMPS"}'
+                        android:textColor="@color/red"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        style="@style/txt_12_med_bold"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text='@{model.city+" "+model.state}'
+                        android:gravity="center_vertical"
+                        android:drawableTint="@color/light_gold"
+                        android:drawableLeft="@drawable/location"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        style="@style/txt_12"/>
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 300 KM"
+                        android:drawableTint="@color/light_gold"
+                        android:drawableLeft="@drawable/location"
+                        android:gravity="center_vertical"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        style="@style/txt_12"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Size : "
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            style="@style/txt_10_med_bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{model.size}"
+                            android:textColor="@color/purple_700"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            style="@style/txt_10"/>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wt : "
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            style="@style/txt_10_med_bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{model.weight}"
+                            android:textColor="@color/purple_700"
+                            android:ellipsize="end"
+                            android:textSize="@dimen/txt10"
+                            android:singleLine="true"
+                            style="@style/txt_10"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text='@{"₹"+model.salePrice}'
+                            android:textColor="@color/purple_700"
+                            android:singleLine="true"
+                            style="@style/txt_12_med_bold"/>
+
+                        <TextView
+                            android:id="@+id/tv_mrp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text='@{"₹"+model.marketPrice}'
+                            android:singleLine="true"
+                            android:textColor="@color/red"
+                            style="@style/txt_12_med_bold"/>
+
+                    </LinearLayout>
+
+
+
+                    <ImageView
+                        android:backgroundTint="@color/grey"
+                        android:background="@drawable/circle"
+                        android:padding="3dp"
+                        android:id="@+id/iv_add_cart"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="bottom"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_empty_cart"
+                        />
+                    <ImageView
+                        android:visibility="gone"
+                        android:backgroundTint="@color/grey"
+                        android:background="@drawable/circle"
+                        android:padding="3dp"
+                        android:id="@+id/iv_remove_cart"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="bottom"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:src="@drawable/ic_cart"
+                        app:tint="@color/purple_500"
+                        />
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_20"
+                      />
+                    <ImageView
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/circle"
+                        android:elevation="@dimen/dp_10"
+                        android:padding="@dimen/dp_5"
+                        android:tint="@color/red"
+                        android:src="@drawable/ic_baseline_heart"/>
+
+
+                <!--    <ImageView
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/circle"
+                        android:elevation="@dimen/dp_10"
+                        android:padding="@dimen/dp_5"
+                        android:tint="@color/purple_700"
+                        android:src="@drawable/ic_baseline_call_24"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/circle"
+                        android:elevation="@dimen/dp_10"
+                        android:padding="@dimen/dp_5"
+                        android:src="@drawable/whatsapp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="1"/>-->
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

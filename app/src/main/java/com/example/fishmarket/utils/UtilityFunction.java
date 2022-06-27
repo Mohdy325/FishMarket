@@ -27,6 +27,7 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Base64OutputStream;
 import android.util.Log;
@@ -36,16 +37,22 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.BindingAdapter;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.fishmarket.R;
 import com.example.fishmarket.activity.LoginActivity;
+import com.example.fishmarket.api_services.UrlContainer;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONObject;
@@ -1007,8 +1014,23 @@ public class UtilityFunction {
         if (processing != null)
             processing.dismiss();
     }
-
-
+    @BindingAdapter({"android:src"})
+    public static void setImageViewResource(ImageView imageView, String url) {
+     //   imageView.setImageResource(resource);
+        Glide.with(imageView.getContext()).load(UrlContainer.IMAGE_BASE_URL+url).placeholder(R.drawable.placeholder).into(imageView);
+    }
+    @BindingAdapter("app:loadImage")
+    public static void loadImage(ImageView view, String imageUrl) {
+        if (!TextUtils.isEmpty(imageUrl)) {
+            RequestOptions options = new RequestOptions()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.placeholder);
+            Glide.with(view.getContext())
+                    .load(UrlContainer.IMAGE_BASE_URL+imageUrl)
+                    .apply(options)
+                    .into(view);
+        }
+    }
 /*
     public static RequestBody toRequestBody(String value) {
         return RequestBody.create(MultipartBody.FORM, value);

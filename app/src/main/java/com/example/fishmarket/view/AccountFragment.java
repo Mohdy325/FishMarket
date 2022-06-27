@@ -1,5 +1,6 @@
 package com.example.fishmarket.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.fishmarket.activity.AddressActivity;
+import com.example.fishmarket.activity.EditProfileActivity;
 import com.example.fishmarket.databinding.FragmentAccountBinding;
 import com.example.fishmarket.utils.BaseFragment;
 import com.example.fishmarket.view_model.AccountViewModel;
@@ -26,6 +29,14 @@ public class AccountFragment extends BaseFragment {
        binding.setModel(viewModel.loginPOJO);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.llProfile.setOnClickListener(view1 -> startActivity(new Intent(context, EditProfileActivity.class)));
+        binding.llMyAddresses.setOnClickListener(view1 -> startActivity(new Intent(context, AddressActivity.class)));
+
     }
 
     @Override

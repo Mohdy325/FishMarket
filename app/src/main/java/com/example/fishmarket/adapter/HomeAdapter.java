@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fishmarket.R;
 import com.example.fishmarket.activity.SellerDetailsActivity;
+import com.example.fishmarket.api_services.UrlContainer;
 import com.example.fishmarket.databinding.InflateHomeListBinding;
+import com.example.fishmarket.databinding.InflateHomeProductsBinding;
 import com.example.fishmarket.model.ProductPOJO;
 import com.example.fishmarket.view.home.HomeFragment;
 import com.example.fishmarket.view.product.ProductFragment;
@@ -29,7 +31,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
     }
     public HomeAdapter() {
     }
-    ArrayList<ProductPOJO> productPOJOS;
+    ArrayList<ProductPOJO> productPOJOS=new ArrayList<>();
     public void updateList(ArrayList<ProductPOJO> arrayList){
         productPOJOS=arrayList;
         notifyDataSetChanged();
@@ -45,8 +47,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
         if (context==null){
             context= parent.getContext();
         }
+
       View view= LayoutInflater.from(context).inflate(R.layout.inflate_home_list,parent,false);
         return new HomeHolder(view);
+
     }
 
     @Override
@@ -62,25 +66,28 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
         }
         holder.itemView.setOnClickListener(view -> {
-            context.startActivity(new Intent(context, SellerDetailsActivity.class));
+            context.startActivity(new Intent(context, SellerDetailsActivity.class).putExtra(UrlContainer.TRANSFER_MODEL,productPOJOS.get(position)));
         });
 
     }
 
     @Override
     public int getItemCount() {
-        if (productPOJOS==null || productPOJOS.size()==0) {
+        /*if (productPOJOS==null || productPOJOS.size()==0) {
             return 6;
         }else {
+            */
             return productPOJOS.size();
-        }
+       // }
     }
 
     public class HomeHolder extends RecyclerView.ViewHolder {
         InflateHomeListBinding binding;
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
-            binding=InflateHomeListBinding.bind(itemView);
+
+                binding = InflateHomeListBinding.bind(itemView);
+
         }
     }
 }

@@ -8,11 +8,17 @@ import com.example.fishmarket.R;
 import com.example.fishmarket.adapter.HomeAdapter;
 import com.example.fishmarket.adapter.ProductCategoryAdapter;
 import com.example.fishmarket.adapter.ProductSubCategoryAdapter;
+import com.example.fishmarket.api_services.ApiManager;
 import com.example.fishmarket.model.CategoryPOJO;
+import com.example.fishmarket.model.CommonModel;
 import com.example.fishmarket.model.ProductPOJO;
 import com.example.fishmarket.model.SubCategoryPOJO;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProductViewModel extends ViewModel {
     public CategoryPOJO categoryPOJO;
@@ -41,7 +47,7 @@ public class ProductViewModel extends ViewModel {
         categoryAdapter.notifyDataSetChanged();
 
     }
-    public ProductSubCategoryAdapter subCategoryAdapter=new ProductSubCategoryAdapter(subCategoryList);
+    /*public ProductSubCategoryAdapter subCategoryAdapter=new ProductSubCategoryAdapter(subCategoryList);
 
     public void setUpSubCategoryData(){
         if (subCategoryList.size()>0){
@@ -74,8 +80,8 @@ public class ProductViewModel extends ViewModel {
         subCategoryAdapter.notifyDataSetChanged();
 
     }
-
-    public ArrayList<CategoryPOJO> subCategoryPOJOS;
+*/
+   /* public ArrayList<CategoryPOJO> subCategoryPOJOS;
 
     public ArrayList<CategoryPOJO> addDataInSubCategory(){
         subCategoryPOJOS =new ArrayList<>();
@@ -94,12 +100,33 @@ public class ProductViewModel extends ViewModel {
         return  subCategoryPOJOS;
     }
 
-
+*/
    public MutableLiveData<ArrayList<ProductPOJO>> mutableLiveData=new MutableLiveData<>();
 
-    public HomeAdapter homeAdapter;
-    public void getProducts(){
-        ArrayList<ProductPOJO> arrayList=new ArrayList<>();
+    public MutableLiveData<CommonModel> successLiveData=new MutableLiveData<>();
+    public MutableLiveData<String> errorLiveData=new MutableLiveData<>();
+
+    public HomeAdapter homeAdapter=new HomeAdapter();
+    public void getProducts(String id){
+        ApiManager.getApiService().getProductList(id).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                if (response.isSuccessful() && response.body().status){
+
+                    homeAdapter.updateList(response.body().productPOJOS);
+                    successLiveData.postValue(response.body());
+
+                }else if (response.message()!=null){
+                    errorLiveData.postValue(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+                errorLiveData.postValue("Something went wrong...");
+            }
+        });
+       /* ArrayList<ProductPOJO> arrayList=new ArrayList<>();
         arrayList.add(new ProductPOJO("AIR BLOWER"));
         arrayList.add(new ProductPOJO("OXYGEN GENERATOR/DIFUSER"));
         arrayList.add(new ProductPOJO("ELECTRICAL PUMPS"));
@@ -111,10 +138,10 @@ public class ProductViewModel extends ViewModel {
         arrayList.add(new ProductPOJO("GENERATOR SET"));
         arrayList.add(new ProductPOJO("FEED DISPENSER"));
         arrayList.add(new ProductPOJO("PLASTIC CRATES"));
-        homeAdapter=new HomeAdapter();
+
         homeAdapter.updateList(arrayList);
 
-        mutableLiveData.postValue(arrayList);
+        mutableLiveData.postValue(arrayList);*/
     }
 
 

@@ -4,10 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,6 +19,7 @@ import com.example.fishmarket.MainActivity;
 import com.example.fishmarket.adapter.HomeAdapter;
 import com.example.fishmarket.databinding.FragmentHomeBinding;
 import com.example.fishmarket.view.bottom_dialogs.LocationDialogFragment;
+import com.google.gson.Gson;
 
 import java.util.Objects;
 
@@ -35,17 +38,33 @@ context=getContext();
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        binding.rvHome.setAdapter(new HomeAdapter(this));
-        new Handler().postDelayed(()->{
+        binding.setViewModel(homeViewModel);
+        homeViewModel.successLiveData.observe(getViewLifecycleOwner(),commonModel -> {
+            binding.progressBar.setVisibility(View.GONE);
+            Log.e("fdassfa",new Gson().toJson(commonModel.in_trending));
+        });
+        homeViewModel.errorLiveData.observe(getViewLifecycleOwner(),text ->{
+            binding.progressBar.setVisibility(View.GONE);
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+        });
+
+
+        //binding.rvHome.setAdapter(new HomeAdapter(this));
+        /*new Handler().postDelayed(()->{
             try {
-                binding.progressBar.setVisibility(View.GONE);
+
+
             }catch (Exception e){
                 e.printStackTrace();
             }
         },3000);
+        */
         homeViewModel.setUpData();
-        binding.rvCategories.setAdapter(homeViewModel.categoryAdapter);
 
+       /* homeViewModel.getProducts();
+        binding.rvHome.setAdapter(homeViewModel.homeAdapter);
+        binding.rvCategories.setAdapter(homeViewModel.categoryAdapter);
+*/
        if (context instanceof MainActivity &&  ((MainActivity) context).binding!=null){
            ((MainActivity) context).binding.appBarMain.llAddress.setOnClickListener(view -> {
                LocationDialogFragment bf = new LocationDialogFragment((address, latitude, longitude) -> {

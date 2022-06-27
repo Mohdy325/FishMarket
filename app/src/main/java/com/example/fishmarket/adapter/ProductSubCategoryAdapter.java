@@ -1,25 +1,35 @@
 package com.example.fishmarket.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fishmarket.MainActivity;
 import com.example.fishmarket.R;
+import com.example.fishmarket.api_services.UrlContainer;
 import com.example.fishmarket.databinding.InflateProductSubcategoryBinding;
 import com.example.fishmarket.model.CategoryPOJO;
+import com.example.fishmarket.model.SubCategoryPOJO;
 
 import java.util.ArrayList;
 
 public class ProductSubCategoryAdapter extends RecyclerView.Adapter<ProductSubCategoryAdapter.ProductSubHolder> {
     Context context;
-    ArrayList<CategoryPOJO> categoryPOJOS;
+    ArrayList<SubCategoryPOJO> categoryPOJOS=new ArrayList<>();
 
-    public ProductSubCategoryAdapter(ArrayList<CategoryPOJO> categoryPOJOS) {
+    public ProductSubCategoryAdapter(ArrayList<SubCategoryPOJO> categoryPOJOS) {
         this.categoryPOJOS = categoryPOJOS;
+    }
+    public void updateList(ArrayList<SubCategoryPOJO> categoryPOJOS) {
+        this.categoryPOJOS = categoryPOJOS;
+    }
+    public ProductSubCategoryAdapter() {
     }
     @NonNull
     @Override
@@ -34,7 +44,19 @@ public class ProductSubCategoryAdapter extends RecyclerView.Adapter<ProductSubCa
     @Override
     public void onBindViewHolder(@NonNull ProductSubCategoryAdapter.ProductSubHolder holder, int position) {
         try {
-            SubCategoryAdapter subCategoryAdapter=new SubCategoryAdapter(context,categoryPOJOS.get(position).subCategoryPOJOS);
+            holder.binding.setModel(categoryPOJOS.get(position));
+            holder.itemView.setOnClickListener(view -> {
+                //Intent intent=new Intent(context, ProductListActivity.class);
+                //context.startActivity(intent);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable(UrlContainer.TRANSFER_MODEL,categoryPOJOS.get(position));
+                if (context instanceof MainActivity){
+                    Navigation.findNavController(view).navigate(R.id.action_nav_sub_category_to_nav_product_by_sub,bundle);
+                    //   ((MainActivity)context).navController.navigate(R.id.action_nav_sub_category_to_nav_product_by_sub,bundle);
+                }
+            });
+
+          /*  SubCategoryAdapter subCategoryAdapter=new SubCategoryAdapter(context,categoryPOJOS.get(position).subCategoryPOJOS);
             holder.binding.rvSubCategory.setAdapter(subCategoryAdapter);
             if (categoryPOJOS.get(position).isExpand){
                 holder.binding.rvSubCategory.setVisibility(View.VISIBLE);
@@ -52,7 +74,7 @@ public class ProductSubCategoryAdapter extends RecyclerView.Adapter<ProductSubCa
             holder.binding.ivExpandLess.setOnClickListener(view -> {
                 categoryPOJOS.get(position).isExpand=false;
                 notifyDataSetChanged();
-            });
+            });*/
         }catch (Exception e){
             e.printStackTrace();
         }

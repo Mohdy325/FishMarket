@@ -14,16 +14,23 @@ import com.example.fishmarket.R;
 import com.example.fishmarket.api_services.UrlContainer;
 import com.example.fishmarket.databinding.InflateHomeCategoryBinding;
 import com.example.fishmarket.model.CategoryPOJO;
+import com.example.fishmarket.model.ProductPOJO;
 
 import java.util.ArrayList;
 
 public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.HomeCategoryHolder> {
     Context context;
 
-    ArrayList<CategoryPOJO> categoryPOJOS;
+    ArrayList<CategoryPOJO> categoryPOJOS=new ArrayList<>();
 
     public HomeCategoryAdapter(ArrayList<CategoryPOJO> categoryPOJOS) {
         this.categoryPOJOS = categoryPOJOS;
+    }
+    public HomeCategoryAdapter() {
+    }
+    public void updateList(ArrayList<CategoryPOJO> arrayList){
+        categoryPOJOS=arrayList;
+        notifyDataSetChanged();
     }
 
     @NonNull

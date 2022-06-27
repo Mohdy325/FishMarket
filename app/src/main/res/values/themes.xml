@@ -44,6 +44,16 @@
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
+    <style name="txt_10">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="txt_10_med_bold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
     <style name="txt_12_med_bold">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">12sp</item>

@@ -16,13 +16,13 @@
             android:padding="@dimen/dp_5"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/feed"
+                app:loadImage="@{categoryModel.image}"
                 />
             <TextView
                 android:layout_width="match_parent"
