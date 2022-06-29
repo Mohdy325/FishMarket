@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 
 public class ProductFragment extends BaseFragment {
   FragProductBinding binding;
-  ProductViewModel viewModel;
+  public ProductViewModel viewModel;
   SubCategoryPOJO categoryPOJO;
     @Nullable
     @Override
@@ -32,6 +32,7 @@ public class ProductFragment extends BaseFragment {
             viewModel.homeAdapter.setFragment(this);
             binding.rvProducts.setAdapter(viewModel.homeAdapter);
         });*/
+        viewModel.homeAdapter.setFragment(this);
         binding.setViewModel(viewModel);
         viewModel.successLiveData.observe(getViewLifecycleOwner(),commonModel -> {
             binding.progressBar.setVisibility(View.GONE);

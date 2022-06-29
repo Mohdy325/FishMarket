@@ -23,6 +23,7 @@ import com.example.fishmarket.databinding.FragLocationDialogBinding;
 import com.example.fishmarket.search_autocomplete.GeocodingLocation;
 import com.example.fishmarket.search_autocomplete.PlacesAutoCompleteAdapter;
 import com.example.fishmarket.search_autocomplete.Prediction;
+import com.example.fishmarket.utils.PrefManager;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -165,6 +166,7 @@ public class LocationDialogFragment extends BottomSheetDialogFragment {
 
         });
 
+
         //close dialog
         //iv_closeDialog.setOnClickListener(view -> dismiss());
 
@@ -223,7 +225,8 @@ public class LocationDialogFragment extends BottomSheetDialogFragment {
                     }*/
                     latitude = Double.parseDouble(address[4]);
                     longitude = Double.parseDouble(address[5]);
-                    addressChoose.onChooseAddress(binding.etAddress.getText().toString(),latitude,longitude);
+
+                    addressChoose.onChooseAddress(binding.etAddress.getText().toString()+" , "+ address[0],latitude,longitude);
                     dismiss();
 
                 }

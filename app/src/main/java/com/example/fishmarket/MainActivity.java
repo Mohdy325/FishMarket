@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.fishmarket.activity.EditProfileActivity;
 import com.example.fishmarket.databinding.NavHeaderMainBinding;
+import com.example.fishmarket.utils.PrefManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,9 +29,17 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     public ActivityMainBinding binding;
     public NavController navController;
+    public static String userId="";
+    TextView tvName;
+    TextView tvMobile;
+    TextView tvEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (userId.isEmpty() && PrefManager.GetLoginData(this)!=null && PrefManager.GetLoginData(this).id!=null){
+            userId= PrefManager.GetLoginData(this).id;
+        }
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -46,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         TextView tv_edit=navigationView.getHeaderView(0).findViewById(R.id.tv_edit);
+        tvName   =navigationView.getHeaderView(0).findViewById(R.id.tvName);
+        tvMobile =navigationView.getHeaderView(0).findViewById(R.id.tvMobile);
+        tvEmail  =navigationView.getHeaderView(0).findViewById(R.id.tvEmail);
+        if (userId.isEmpty() && PrefManager.GetLoginData(this)!=null && PrefManager.GetLoginData(this).id!=null){
+            tvName.setText(PrefManager.GetLoginData(this).name);
+            tvMobile.setText(PrefManager.GetLoginData(this).mobile);
+            if ( PrefManager.GetLoginData(this).email!=null) {
+                tvEmail.setText(PrefManager.GetLoginData(this).email);
+                tvEmail.setVisibility(View.VISIBLE);
+            }else {
+                tvEmail.setVisibility(View.GONE);
+            }
+            }
         tv_edit.setOnClickListener(view -> startActivity(new Intent(this, EditProfileActivity.class)));
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -72,6 +94,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

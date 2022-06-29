@@ -1,5 +1,7 @@
 package com.example.fishmarket.view.home;
 
+import static com.example.fishmarket.MainActivity.userId;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,11 +11,13 @@ import com.example.fishmarket.adapter.HomeCategoryAdapter;
 import com.example.fishmarket.adapter.HomeProductAdapter;
 import com.example.fishmarket.adapter.ProductCategoryAdapter;
 import com.example.fishmarket.api_services.ApiManager;
+import com.example.fishmarket.api_services.UrlContainer;
 import com.example.fishmarket.model.CategoryPOJO;
 import com.example.fishmarket.model.CommonModel;
 import com.example.fishmarket.model.ProductPOJO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,11 +37,37 @@ public class HomeViewModel extends ViewModel {
         return mText;
     }
     public ArrayList<CategoryPOJO> categoryPOJOS=new ArrayList<>();
-    public HomeCategoryAdapter categoryAdapter=new HomeCategoryAdapter();
+    public HomeCategoryAdapter categoryAdapter=new HomeCategoryAdapter(UrlContainer.HOME);
+    public HomeCategoryAdapter categoryAdapter2=new HomeCategoryAdapter(UrlContainer.CATEGORY_LIST);
+    public void getCategoryList(){
+        ApiManager.getApiService().getRequest(UrlContainer.CATEGORY_LIST).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                if (response.isSuccessful() && response.body().status){
 
+                    categoryAdapter2.updateList(response.body().categoryPOJOS);
+                    successLiveData.postValue(response.body());
+
+                }else if (response.message()!=null){
+                    errorLiveData.postValue(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+                errorLiveData.postValue("Something went wrong...");
+            }
+        });
+
+    }
 
     public void setUpData(){
-        ApiManager.getApiService().callHomeApi().enqueue(new Callback<CommonModel>() {
+        HashMap<String,String> hashMap=new HashMap<>();
+        if (!userId.isEmpty()) {
+            hashMap.put("user_id", userId);
+        }
+
+        ApiManager.getApiService().commonRequest(UrlContainer.HOME,hashMap).enqueue(new Callback<CommonModel>() {
             @Override
             public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
                 if (response.isSuccessful() && response.body().status){

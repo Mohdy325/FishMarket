@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.fishmarket.MainActivity;
 import com.example.fishmarket.adapter.HomeAdapter;
 import com.example.fishmarket.databinding.FragmentHomeBinding;
+import com.example.fishmarket.utils.PrefManager;
 import com.example.fishmarket.view.bottom_dialogs.LocationDialogFragment;
 import com.google.gson.Gson;
 
@@ -40,12 +41,17 @@ context=getContext();
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         binding.setViewModel(homeViewModel);
         homeViewModel.successLiveData.observe(getViewLifecycleOwner(),commonModel -> {
+            binding.refreshLayout.setRefreshing(false);
             binding.progressBar.setVisibility(View.GONE);
             Log.e("fdassfa",new Gson().toJson(commonModel.in_trending));
         });
         homeViewModel.errorLiveData.observe(getViewLifecycleOwner(),text ->{
+            binding.refreshLayout.setRefreshing(false);
             binding.progressBar.setVisibility(View.GONE);
             Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+        });
+        binding.refreshLayout.setOnRefreshListener(()->{
+            homeViewModel.setUpData();
         });
 
 
@@ -68,7 +74,13 @@ context=getContext();
        if (context instanceof MainActivity &&  ((MainActivity) context).binding!=null){
            ((MainActivity) context).binding.appBarMain.llAddress.setOnClickListener(view -> {
                LocationDialogFragment bf = new LocationDialogFragment((address, latitude, longitude) -> {
-                   ((MainActivity) context).binding.appBarMain.tvAddress.setText(address);
+                   PrefManager.setString(context,PrefManager.LATITUDE,latitude+"");
+                   PrefManager.setString(context,PrefManager.LONGITUDE,longitude+"");
+                   ((MainActivity) context).binding.appBarMain.tvAddress.setText(address.split(",")[0].trim());
+                   ((MainActivity) context).binding.appBarMain.tvCity.setText(address.split(",")[1].trim());
+                   PrefManager.setString(context,PrefManager.LOCATION_ADDRESS,address.split(",")[0].trim()+"");
+                   PrefManager.setString(context,PrefManager.CITY_ADDRESS,address.split(",")[1].trim()+"");
+                   homeViewModel.homeAdapter.notifyDataSetChanged();
                });
                // Bundle bundle=new Bundle();
                //bundle.putSerializable(UrlContainer.TRANSFER_MODEL,new ChatUserPOJO("Alex","just now",true, R.drawable.user));

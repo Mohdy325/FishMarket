@@ -61,4 +61,6 @@
     <string name="my_addresses">My Addresses</string>
     <string name="Rs">₹</string>
     <string name="no_data_found">No data found!</string>
+    <string name="you_have_no_favourite_product">You have no favourite product!</string>
+    <string name="fish_colon">Fish :</string>
 </resources>

@@ -26,7 +26,9 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     public HomeCategoryAdapter(ArrayList<CategoryPOJO> categoryPOJOS) {
         this.categoryPOJOS = categoryPOJOS;
     }
-    public HomeCategoryAdapter() {
+    String type;
+    public HomeCategoryAdapter(String type) {
+        this.type=type;
     }
     public void updateList(ArrayList<CategoryPOJO> arrayList){
         categoryPOJOS=arrayList;
@@ -51,7 +53,13 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             Bundle bundle=new Bundle();
             bundle.putSerializable(UrlContainer.TRANSFER_MODEL,categoryPOJOS.get(position));
             if (context instanceof MainActivity){
-                ((MainActivity)context).navController.navigate(R.id.action_nav_home_to_nav_sub_category,bundle);
+            if (type.equals(UrlContainer.HOME)) {
+                ((MainActivity) context).navController.navigate(R.id.action_nav_home_to_nav_sub_category, bundle);
+            }else  if (type.equals(UrlContainer.CATEGORY_LIST)) {
+                ((MainActivity) context).navController.navigate(R.id.action_nav_product_to_nav_sub_category, bundle);
+            }else {
+
+            }
             }
         });
     }

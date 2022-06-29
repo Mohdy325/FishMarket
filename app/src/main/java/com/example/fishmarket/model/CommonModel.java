@@ -10,10 +10,15 @@ public class CommonModel implements Serializable {
 
     @SerializedName("status")
     @Expose
-    public Boolean status;
+    public boolean status;
+    public boolean isLogin;
     @SerializedName("message")
     @Expose
     public String message;
+
+    @SerializedName("user")
+    @Expose
+    public LoginPOJO user;
 
     @SerializedName("category")
     @Expose
@@ -27,6 +32,13 @@ public class CommonModel implements Serializable {
     @SerializedName("product")
     @Expose
     public ArrayList<ProductPOJO> productPOJOS;
+    @SerializedName("favourite")
+    @Expose
+    public ArrayList<ProductPOJO> favourite;
+
+    @SerializedName("product_details")
+    @Expose
+    public ProductPOJO product_details;
 
 
     @SerializedName("sub_category")

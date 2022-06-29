@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.fishmarket.model.AddressPOJO;
+import com.example.fishmarket.model.LoginPOJO;
 import com.google.gson.Gson;
 
 /**
@@ -15,6 +16,7 @@ import com.google.gson.Gson;
 public class PrefManager {
     public static final String MY_ADDRESS = "MyAddress";
     public static final String PREV_MY_ADDRESS = "PrevMyAddress";
+    public static final String CITY_ADDRESS = "CityAddress";
     public static final String LOCATION_ADDRESS = "LocationAddress";
 
     SharedPreferences pref;
@@ -137,19 +139,21 @@ public class PrefManager {
     }
 
 
-/*
 
 
 
 
 
-  public static void SaveLoginData(Context context, LoginPOJO responseData)
+
+
+    public static void SaveLoginData(Context context, LoginPOJO responseData)
     {
         SharedPreferences sp = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         String json=new Gson().toJson(responseData);
         sp.edit().putString("LoginData",json).apply();
         Log.d("LoginData",json);
     }
+
 
     public static LoginPOJO GetLoginData(Context context)
     {
@@ -165,6 +169,7 @@ public class PrefManager {
         }
         // sp.edit().putString("LoginData",json).apply();
     }
+    /*
     public static BusinessProfilePOJO GetBusinessProfile(Context context)
     {
         SharedPreferences sp = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
@@ -246,8 +251,8 @@ public class PrefManager {
         pref.edit().clear().apply();
     }
     public static void clearLoginData(Context context){
-       // SaveLoginData(context,null);
-        //SaveDefualtAddressData(context,null);
+       SaveLoginData(context,null);
+        SaveDefualtAddressData(context,null);
     }
 
 
@@ -335,29 +340,7 @@ public class PrefManager {
         // sp.edit().putString("LoginData",json).apply();
 
     }*/
-  /*public static void SaveLoginData(Context context, LoginPOJO responseData)
-    {
-        SharedPreferences sp = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-        String json=new Gson().toJson(responseData);
-        sp.edit().putString("LoginData",json).apply();
-        Log.d("LoginData",json);
-    }
-
-
-    public static LoginPOJO GetLoginData(Context context)
-    {
-        SharedPreferences sp = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-        String json=sp.getString("LoginData","");
-        Log.d("LoginData",json);
-        if (json.equalsIgnoreCase(""))
-        {
-            return null;
-        }else {
-            LoginPOJO responseData = new Gson().fromJson(json, LoginPOJO.class);
-            return responseData;
-        }
-        // sp.edit().putString("LoginData",json).apply();
-    }
+  /*
      public static void SaveCartList(Context context, ArrayList<CartPOJO> responseData)
     {
         if (responseData==null || responseData.size()==0) {

@@ -1,6 +1,7 @@
 package com.example.fishmarket.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     @Override
     public void onBindViewHolder(@NonNull HomeProductHolder holder, int position) {
         holder.binding.setModel(productPOJOS.get(position)  );
+        holder.binding.tvMrp.setPaintFlags(holder.binding.tvMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     @Override

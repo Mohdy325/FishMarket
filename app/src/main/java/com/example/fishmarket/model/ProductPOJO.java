@@ -6,8 +6,10 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class ProductPOJO implements Serializable {
+    public int index;
     public String name;
     public String dummy="Genetically Imroved Katla";
+
     public ProductPOJO(){
 
     }
@@ -15,6 +17,7 @@ public class ProductPOJO implements Serializable {
     public ProductPOJO(String name) {
         this.name = name;
     }
+
 
     @SerializedName("id")
     @Expose
@@ -67,6 +70,10 @@ public class ProductPOJO implements Serializable {
     @SerializedName("image")
     @Expose
     private String image;
+    @SerializedName("wishlist_status")
+    @Expose
+    private String product_favourite_status;
+
     @SerializedName("rating")
     @Expose
     private Integer rating;
@@ -214,6 +221,37 @@ public class ProductPOJO implements Serializable {
     public void setRating(Integer rating) {
         this.rating = rating;
     }
+
+    public String getProduct_favourite_status() {
+        return product_favourite_status;
+    }
+
+    public void setProduct_favourite_status(String product_favourite_status) {
+        this.product_favourite_status = product_favourite_status;
+    }
+    @SerializedName("favoritesid")
+    @Expose
+    private Integer favoritesid;
+    @SerializedName("user_id")
+    @Expose
+    private Integer user_id;
+
+    public Integer getFavoritesid() {
+        return favoritesid;
+    }
+
+    public void setFavoritesid(Integer favoritesid) {
+        this.favoritesid = favoritesid;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
     /*{
         "id":5,
             "product_name":"ELECTRICAL PUMPS",
@@ -235,4 +273,38 @@ public class ProductPOJO implements Serializable {
             "rating":3,
 
     }*/
+
+
+      /*  "favourite": [
+    {
+        "id": 5,
+            "user_id": 10,
+            "category_id": 12,
+            "sub_category_id": 7,
+            "brand_id": 2,
+            "product_name": "ELECTRICAL PUMPS",
+            "slug": "test-product-2",
+            "company": "test product",
+            "used_for": "test product",
+            "specifications": "test product",
+            "market_price": 123,
+            "sale_price": 122,
+            "size": "sdf",
+            "weight": "sdf",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "country": "India",
+            "pincode": "226001",
+            "latitude": "26.8466937",
+            "longitude": "80.946166",
+            "image": "uploads/product_image/1655986443.jpg",
+            "status": 1,
+            "created_date": "2022-06-23",
+            "created_time": "05:44 pm",
+            "created_at": "2022-06-23 12:14:03",
+            "updated_at": "2022-06-23 12:30:41",
+            "favoritesid": 17
     }
+]*/
+
+}

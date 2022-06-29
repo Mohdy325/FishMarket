@@ -3,9 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.fishmarket.view.home.HomeViewModel" />
 
     </data>
-    <FrameLayout  android:orientation="vertical"
+    <FrameLayout
+        android:orientation="vertical"
         android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:itemCount="21"
-            tools:listitem="@layout/inflate_product_category"
+            app:spanCount="3"
+            android:adapter="@{viewModel.categoryAdapter2}"
+            tools:listitem="@layout/inflate_home_category"
             />
         <ProgressBar
             android:id="@+id/progressBar"

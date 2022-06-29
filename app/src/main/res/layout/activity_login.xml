@@ -39,7 +39,7 @@
                     />
 
             </FrameLayout>
-            <EditText
+            <!--<EditText
                 android:layout_marginTop="15dp"
                 android:id="@+id/etName"
                 android:paddingRight="10dp"
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/rectangle"/>
-
+-->
             <!--
                       app:startIconDrawable="@drawable/ic_user"
                       app:startIconTint="@color/custom_color_icon"

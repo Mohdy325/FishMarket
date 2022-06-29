@@ -209,8 +209,8 @@
                             android:background="@color/grey" />
                     </LinearLayout>
                     <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/ll_service_request"
+                        android:visibility="visible"
+                        android:id="@+id/ll_my_favourite"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
@@ -225,7 +225,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/customer_service"
+                                android:src="@drawable/ic_baseline_favorite_24"
                                 app:tint="@color/dark_text_color" />
 
                             <TextView
@@ -233,7 +233,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="@string/service_request"
+                                android:text="@string/my_favourites"
                                 android:fontFamily="@font/rubik_regular"
                                 android:textColor="@color/dark_text_color" />
                             <ImageView

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.fishmarket.view_model.WishListViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                >
+                <!--      <ImageView
+                          android:id="@+id/iv_drawer"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:src="@drawable/ic_arrow_back_black_24dp"
+                          app:tint="@color/white" />
+                -->
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <FrameLayout
+
+            android:id="@+id/fl_data_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_margin="5dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:id="@+id/rv_wishList"
+                android:adapter="@{viewModel.wishListAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:itemCount="6"
+                />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_no_data"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/you_have_no_favourite_product"
+                />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</layout>

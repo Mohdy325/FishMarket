@@ -1,5 +1,7 @@
 package com.example.fishmarket.utils;
 
+import static com.example.fishmarket.MainActivity.userId;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +20,9 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context=activity=this;
+        if (userId.isEmpty() && PrefManager.GetLoginData(context)!=null && PrefManager.GetLoginData(context).id!=null){
+            userId= PrefManager.GetLoginData(this).id;
+        }
 
     }
 
